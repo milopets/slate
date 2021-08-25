@@ -76,6 +76,7 @@ export const ReactEditor = {
       child = parent
     }
 
+    console.log(`SlateJS: Unable to find the path for Slate node: ${JSON.stringify(node)}`);
     throw new Error(
       `Unable to find the path for Slate node: ${JSON.stringify(node)}`
     )
@@ -207,6 +208,7 @@ export const ReactEditor = {
       : KEY_TO_ELEMENT.get(ReactEditor.findKey(editor, node))
 
     if (!domNode) {
+      console.log(`SlateJS: Cannot resolve a DOM node from Slate node: ${JSON.stringify(node)}`);
       throw new Error(
         `Cannot resolve a DOM node from Slate node: ${JSON.stringify(node)}`
       )
@@ -259,6 +261,7 @@ export const ReactEditor = {
     }
 
     if (!domPoint) {
+      console.log(`SlateJS: Cannot resolve a DOM point from Slate point: ${JSON.stringify(point)}`);
       throw new Error(
         `Cannot resolve a DOM point from Slate point: ${JSON.stringify(point)}`
       )
@@ -319,6 +322,7 @@ export const ReactEditor = {
     const node = domEl ? ELEMENT_TO_NODE.get(domEl as HTMLElement) : null
 
     if (!node) {
+      console.log(`SlateJS: Cannot resolve a Slate node from DOM node: ${domEl}`);
       throw new Error(`Cannot resolve a Slate node from DOM node: ${domEl}`)
     }
 
@@ -337,6 +341,7 @@ export const ReactEditor = {
     const { clientX: x, clientY: y, target } = event
 
     if (x == null || y == null) {
+      console.log(`SlateJS: Cannot resolve a Slate range from a DOM event: ${event}`);
       throw new Error(`Cannot resolve a Slate range from a DOM event: ${event}`)
     }
 
@@ -383,6 +388,7 @@ export const ReactEditor = {
     }
 
     if (!domRange) {
+      console.log(`SlateJS: Cannot resolve a Slate range from a DOM event: ${event}`);
       throw new Error(`Cannot resolve a Slate range from a DOM event: ${event}`)
     }
 
@@ -455,6 +461,7 @@ export const ReactEditor = {
     }
 
     if (!textNode) {
+      console.log(`SlateJS: Cannot resolve a Slate point from DOM point: ${domPoint}`);
       throw new Error(
         `Cannot resolve a Slate point from DOM point: ${domPoint}`
       )
@@ -508,6 +515,7 @@ export const ReactEditor = {
       anchorOffset == null ||
       focusOffset == null
     ) {
+      console.log(`SlateJS: Cannot resolve a Slate range from DOM range: ${domRange}`);
       throw new Error(
         `Cannot resolve a Slate range from DOM range: ${domRange}`
       )
